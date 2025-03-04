@@ -27,7 +27,7 @@
                             <div class="col-12 col-md-4 mb-3">
                                 <select name="locality" class="form-control">
                                     <option selected>Locality (All)</option>
-                                    {% for key,value in locality_choices.items %}
+                                    {% for key, value in locality_choices.items %}
                                         <option value="{{ key }}">{{ value }}</option>
                                     {% endfor %}
                                 </select>
@@ -38,7 +38,7 @@
                             <div class="col-12 col-md-6 mb-3">
                                 <select name="bedrooms" class="form-control">
                                     <option selected disabled>Bedrooms (All)</option>
-                                    {% for key,value in bedroom_choices.items %}
+                                    {% for key, value in bedroom_choices.items %}
                                         <option value="{{ key }}">{{ value }}</option>
                                     {% endfor %}
                                 </select>
@@ -46,7 +46,7 @@
                             <div class="col-12 col-md-6 mb-3">
                                 <select name="price" class="form-control">
                                     <option selected disabled>Max Price (Any)</option>
-                                    {% for key,value in price_choices.items %}
+                                    {% for key, value in price_choices.items %}
                                         <option value="{{ key }}">{{ value }}</option>
                                     {% endfor %}
                                 </select>
@@ -71,14 +71,14 @@
             {% if listings %}
                 {% for listing in listings %}
                     <div class="col-12 col-sm-6 col-lg-4 mb-4 d-flex">
-                        <div class="card listing-preview d-flex flex-column" style="width: 100%;">
+                        <div class="card listing-preview d-flex flex-column h-100" style="width: 100%;">
                             <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="Property Image">
                             <div class="card-img-overlay">
                                 <h2>
                                     <span class="badge badge-secondary text-white">₹{{ listing.price | indian_currency }}</span>
                                 </h2>
                             </div>
-                            <div class="card-body d-flex flex-column">
+                            <div class="card-body d-flex flex-column flex-grow-1">
                                 <div class="listing-heading text-center">
                                     <h4 class="text-primary">{{ listing.title }}</h4>
                                     <p><i class="fas fa-map-marker-alt text-secondary"></i> {{ listing.city }}, {{ listing.state }}, {{ listing.zipcode }}</p>

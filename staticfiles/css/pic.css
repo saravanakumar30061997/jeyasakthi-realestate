@@ -1,0 +1,86 @@
+/* General Mobile Styles */
+body {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Responsive Navbar */
+.navbar {
+    flex-wrap: wrap;
+}
+.navbar-nav {
+    text-align: center;
+}
+.navbar-nav .nav-item {
+    margin: 5px 0;
+}
+
+/* Responsive Cards */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.card .btn {
+    margin-top: auto;  /* Push button to bottom */
+}
+
+/* Responsive Form */
+@media (max-width: 768px) {
+    .form-row {
+        display: block;
+    }
+    .form-row .col-md-4, .form-row .col-md-6 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Adjust Heading Sizes */
+@media (max-width: 576px) {
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    .home-search p {
+        font-size: 14px;
+    }
+}
+
+/* Responsive Grid for Listings */
+@media (max-width: 992px) {
+    .col-lg-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+@media (max-width: 576px) {
+    .col-lg-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+    .btn {
+        width: 100%;
+    }
+}

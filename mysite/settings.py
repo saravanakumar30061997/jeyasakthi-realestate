@@ -15,6 +15,10 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+os.environ['LC_ALL'] = 'C.UTF-8'
+os.environ['LANG'] = 'C.UTF-8'
+
+
 # Load environment variables
 load_dotenv()
 

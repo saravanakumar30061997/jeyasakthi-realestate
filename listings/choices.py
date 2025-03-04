@@ -1,4 +1,5 @@
 bedroom_choices = {
+    0:"Vacant land",
     1: "1 BHK",
     2: "2 BHK",
     3: "3 BHK",

@@ -3,102 +3,102 @@
 {% block title %} | Welcome {% endblock %}
 {% block content %}
 
-    <!-- Showcase -->
-    <section id="showcase">
+<!-- Showcase -->
+<section id="showcase">
     <div class="container text-center">
         <div class="home-search p-5">
-        <div class="overlay p-5">
-            <h1 class="display-4 mb-4">
-            Find Your Dream Property with Ease
-            </h1>
-            <p class="lead">Discover the perfect home or investment opportunity with our extensive property listings. Search by location, budget, and features to find exactly what you need.</p>
-            <div class="search">
-            <form action="{% url 'search' %}">
-                <!-- Form Row 1 -->
-                <div class="form-row">
-                <div class="col-md-4 mb-3">
-                    <label class="sr-only">Keywords</label>
-                    <input type="text" name="keywords" class="form-control" placeholder="Search by keywords">
+            <div class="overlay p-5">
+                <h1 class="display-4 mb-4">
+                    Find Your Dream Property with Ease
+                </h1>
+                <p class="lead">
+                    Discover the perfect home or investment opportunity with our extensive property listings. Search by location, budget, and features to find exactly what you need.
+                </p>
+                <div class="search">
+                    <form action="{% url 'search' %}">
+                        <!-- Form Row 1 -->
+                        <div class="form-row">
+                            <div class="col-12 col-md-4 mb-3">
+                                <input type="text" name="keywords" class="form-control" placeholder="Search by keywords">
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <input type="text" name="title" class="form-control" placeholder="Search by title">
+                            </div>
+                            <div class="col-12 col-md-4 mb-3">
+                                <select name="locality" class="form-control">
+                                    <option selected>Locality (All)</option>
+                                    {% for key,value in locality_choices.items %}
+                                        <option value="{{ key }}">{{ value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Form Row 2 -->
+                        <div class="form-row">
+                            <div class="col-12 col-md-6 mb-3">
+                                <select name="bedrooms" class="form-control">
+                                    <option selected disabled>Bedrooms (All)</option>
+                                    {% for key,value in bedroom_choices.items %}
+                                        <option value="{{ key }}">{{ value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3">
+                                <select name="price" class="form-control">
+                                    <option selected disabled>Max Price (Any)</option>
+                                    {% for key,value in price_choices.items %}
+                                        <option value="{{ key }}">{{ value }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-secondary btn-block mt-4" type="submit">Search Properties</button>
+                    </form>
                 </div>
-
-                <div class="col-md-4 mb-3">
-                    <label class="sr-only">Title</label>
-                    <input type="text" name="title" class="form-control" placeholder="Search by title">
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label class="sr-only">Locality</label>
-                    <select name="locality" class="form-control">
-                    <option selected="true">Locality (All)</option>
-                    {% for key,value in locality_choices.items %}
-                        <option value="{{ key }}">{{ value }}</option>
-                    {% endfor %}
-                    </select>
-                </div>
-                </div>
-                <!-- Form Row 2 -->
-                <div class="form-row">
-                <div class="col-md-6 mb-3">
-                    <label class="sr-only">Bedrooms</label>
-                    <select name="bedrooms" class="form-control">
-                    <option selected="true" disabled="disabled">Bedrooms (All)</option>
-                    {% for key,value in bedroom_choices.items %}
-                        <option value="{{ key }}">{{ value }}</option>
-                    {% endfor %}
-                    </select>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <select name="price" class="form-control" id="type">
-                    <option selected="true" disabled="disabled">Max Price (Any)</option>
-                    {% for key,value in price_choices.items %}
-                        <option value="{{ key }}">{{ value }}</option>
-                    {% endfor %}
-                    </select>
-                </div>
-                </div>
-                <button class="btn btn-secondary btn-block mt-4" type="submit">Search Properties</button>
-            </form>
             </div>
         </div>
-        </div>
     </div>
-    </section>
+</section>
 
-    <!-- alerts -->
-     {% include 'partials/_alerts.html' %}
+<!-- Alerts -->
+{% include 'partials/_alerts.html' %}
 
-    <!-- Listings -->
-    <section id="listings" class="py-5">
+<!-- Listings -->
+<section id="listings" class="py-5">
     <div class="container">
         <h3 class="text-center mb-3">Latest Listings</h3>
         <div class="row">
             {% if listings %}
                 {% for listing in listings %}
-                    <div class="col-md-6 col-lg-4 mb-4 d-flex">
-                        <div class="card listing-preview d-flex flex-column" style="width: 22rem;">
+                    <div class="col-12 col-sm-6 col-lg-4 mb-4 d-flex">
+                        <div class="card listing-preview d-flex flex-column" style="width: 100%;">
                             <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="Property Image">
                             <div class="card-img-overlay">
                                 <h2>
-                                    <span class="badge badge-secondary text-white">₹{{listing.price | indian_currency}}</span>
+                                    <span class="badge badge-secondary text-white">₹{{ listing.price | indian_currency }}</span>
                                 </h2>
                             </div>
                             <div class="card-body d-flex flex-column">
                                 <div class="listing-heading text-center">
                                     <h4 class="text-primary">{{ listing.title }}</h4>
-                                    <p><i class="fas fa-map-marker text-secondary"></i> {{ listing.city }}, {{ listing.state }}, {{ listing.zipcode }}</p>
+                                    <p><i class="fas fa-map-marker-alt text-secondary"></i> {{ listing.city }}, {{ listing.state }}, {{ listing.zipcode }}</p>
                                 </div>
                                 <hr>
                                 <div class="row py-2 text-secondary">
                                     <div class="col-6">
-                                        <i class="fas fa-th-large"></i> Sqft: {{ listing.sqft }}</div>
+                                        <i class="fas fa-th-large"></i> Sqft: {{ listing.sqft }}
+                                    </div>
                                     <div class="col-6">
-                                        <i class="fas fa-car"></i> Garage: {{ listing.garage }}</div>
+                                        <i class="fas fa-car"></i> Garage: {{ listing.garage }}
+                                    </div>
                                 </div>
                                 <div class="row py-2 text-secondary">
                                     <div class="col-6">
-                                        <i class="fas fa-bed"></i> Bedrooms: {{ listing.bedrooms }}</div>
+                                        <i class="fas fa-bed"></i> Bedrooms: {{ listing.bedrooms }}
+                                    </div>
                                     <div class="col-6">
-                                        <i class="fas fa-bath"></i> Bathrooms: {{ listing.bathrooms }}</div>
+                                        <i class="fas fa-bath"></i> Bathrooms: {{ listing.bathrooms }}
+                                    </div>
                                 </div>
                                 <hr>
                                 <div class="mt-auto">
@@ -110,36 +110,34 @@
                 {% endfor %}
             {% else %}
                 <div class="col-md-12">
-                    <p>No Listings available</p>
+                    <p class="text-center">No Listings Available</p>
                 </div>
             {% endif %}
         </div>
     </div>
-    </section>
+</section>
 
-    <section id="services" class="py-5 bg-secondary text-white">
+<!-- Services -->
+<section id="services" class="py-5 bg-secondary text-white">
     <div class="container">
         <div class="row text-center">
-        <div class="col-md-4">
-            <i class="fas fa-comment fa-4x mr-4"></i>
-            <hr>
-            <h3>Expert Consultation</h3>
-            <p>Our experienced real estate consultants provide tailored advice to help you find the perfect property that suits your needs and budget.</p>
-        </div>
-        <div class="col-md-4">
-            <i class="fas fa-home fa-4x mr-4"></i>
-            <hr>
-            <h3>Property Management</h3>
-            <p>We offer comprehensive property management services, ensuring your real estate investments remain well-maintained and profitable.</p>
-        </div>
-        <div class="col-md-4">
-            <i class="fas fa-suitcase fa-4x mr-4"></i>
-            <hr>
-            <h3>Buying & Selling</h3>
-            <p>Whether you're looking to buy or sell, we facilitate smooth transactions with expert guidance and market insights.</p>
-        </div>
+            <div class="col-12 col-md-4 mb-3">
+                <i class="fas fa-comment fa-3x mb-3"></i>
+                <h3>Expert Consultation</h3>
+                <p>Get tailored advice to find the perfect property that suits your needs and budget.</p>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <i class="fas fa-home fa-3x mb-3"></i>
+                <h3>Property Management</h3>
+                <p>Comprehensive services to maintain and manage your real estate investments.</p>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <i class="fas fa-suitcase fa-3x mb-3"></i>
+                <h3>Buying & Selling</h3>
+                <p>Simplified property transactions with expert guidance and market insights.</p>
+            </div>
         </div>
     </div>
-    </section>
+</section>
 
 {% endblock %}

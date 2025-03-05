@@ -2,6 +2,8 @@ from django.db import models
 from datetime import datetime
 from realtors.models import Realtor
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
+
 
 
 # Create your models here.
@@ -45,6 +47,10 @@ class Listing(models.Model):
     photo_6 = CloudinaryField('photo_6',null=True, blank=True)
     is_published = models.BooleanField(default=True)
     list_date = models.DateTimeField(default=datetime.now, blank=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
+
+    def get_absolute_url(self):
+        return reverse('listing', args=[str(self.id)])  # Match this with your URL name
 
 
     def __str__(self):

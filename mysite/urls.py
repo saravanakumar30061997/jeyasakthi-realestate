@@ -23,6 +23,8 @@ import debug_toolbar
 from django.contrib.sitemaps.views import sitemap
 from listings.sitemaps import ListingSitemap
 from pages.sitemaps import StaticViewSitemap
+from django.views.generic.base import TemplateView
+
 
 
 sitemaps = {
@@ -37,6 +39,7 @@ urlpatterns = [
     path('accounts/',include('accounts.urls')),
     path('contacts/',include('contacts.urls')),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
+    path('googleef77926a2a0da1fa.html', TemplateView.as_view(template_name="googleef77926a2a0da1fa.html", content_type="text/html")),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 urlpatterns += [path('__debug__/', include(debug_toolbar.urls))]

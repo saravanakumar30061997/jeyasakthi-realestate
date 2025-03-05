@@ -15,21 +15,6 @@ body {
     margin: 5px 0;
 }
 
-/* Responsive Cards */
-.card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-.card-body {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-.card .btn {
-    margin-top: auto;  /* Push button to bottom */
-}
-
 /* Responsive Form */
 @media (max-width: 768px) {
     .form-row {

@@ -84,3 +84,18 @@ img {
         width: 100%;
     }
 }
+
+@media (max-width: 768px) {
+    .home-search {
+        padding: 2rem 1rem !important;
+    }
+    .home-search h1 {
+        font-size: 1.8rem;
+    }
+    .home-search p {
+        font-size: 1rem;
+    }
+    .search .form-row {
+        flex-direction: column;
+    }
+}

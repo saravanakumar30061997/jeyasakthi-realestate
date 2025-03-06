@@ -17,8 +17,8 @@
 
         <!-- Blog Content -->
         <div class="mt-4 text-start">
-            <p class="lead text-muted">{{ blog.description | safe | linebreaks }}</p>
-        </div>
+            <p class="text-muted" style="text-align: left;">{{ blog.description | safe | linebreaks }}</p>
+        </div>        
 
         <!-- Back Button -->
         <a href="{% url 'blog:all_blogs' %}" class="btn btn-secondary mt-3">

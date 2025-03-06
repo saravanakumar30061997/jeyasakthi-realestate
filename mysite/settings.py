@@ -41,6 +41,7 @@ ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
 # Application definition
 
 INSTALLED_APPS = [
+    'blog.apps.BlogConfig',
     'contacts.apps.ContactsConfig',
     'accounts.apps.AccountsConfig',
     'realtors.apps.RealtorsConfig',

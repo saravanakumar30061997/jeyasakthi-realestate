@@ -39,10 +39,10 @@ def search(request):
         if keywords:
             queryset_list = queryset_list.filter(title__icontains=keywords)
     #locality_choices
-    if 'locality_choices' in request.GET:
-        keywords = request.GET['locality_choices'] # Remove leading/trailing spaces
-        if keywords:
-            queryset_list = queryset_list.filter(locality_choices__icontains=keywords)
+    city = request.GET.get('city', None)
+    if city and city != "Locality (All)":
+        queryset_list = queryset_list.filter(city__iexact=city)
+
     #bedrooms
     if 'bedrooms' in request.GET:
         keywords = request.GET['bedrooms']  # Remove leading/trailing spaces

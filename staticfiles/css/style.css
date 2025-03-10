@@ -143,5 +143,11 @@ img {
     border-radius: 8px; /* Optional: Adds rounded corners */
 }
 
+.special-img {
+  height: 500px !important; /* Increase height */
+  object-fit: cover; /* Prevents distortion */
+  width: 100%; /* Ensures responsiveness */
+  border-radius: 8px; /* Keeps Bootstrap styling */
+}
 
   

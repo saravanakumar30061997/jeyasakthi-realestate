@@ -29,5 +29,6 @@ locality_choices = {
     "avadi": "Avadi",
     "thirumullaivoyal": "Thirumullaivoyal",
     "annanur": "Annanur",
-    "tiruverkadu": "Tiruverkadu"
+    "tiruverkadu": "Tiruverkadu",
+    "tiruvallur": "Tiruvallur",
 }

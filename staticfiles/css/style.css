@@ -135,4 +135,13 @@ img {
 .whatsapp-float:hover {
       opacity: 0.8;
   }
+
+  .card-img-top {
+    height: 250px; /* Adjust height as needed */
+    width: 100%; /* Ensure full width */
+    object-fit: cover; /* Crop instead of stretching */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+}
+
+
   

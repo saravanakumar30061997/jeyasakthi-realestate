@@ -26,39 +26,50 @@ def listing(request,slug):
     return render(request,'listings/listing.html', context)
 
 def search(request):
-
     queryset_list = Listing.objects.order_by('-list_date').filter(is_published=True)
-    #keywords
-    if 'keywords' in request.GET:
-        keywords = request.GET['keywords']
-        if keywords:
-            queryset_list = queryset_list.filter(description__icontains=keywords)
-    #title
-    if 'title' in request.GET:
-        keywords = request.GET['title'].strip()  # Remove leading/trailing spaces
-        if keywords:
-            queryset_list = queryset_list.filter(title__icontains=keywords)
-    #locality_choices
-    city = request.GET.get('city', None)
-    if city and city != "Locality (All)":
-        queryset_list = queryset_list.filter(city__iexact=city)
 
-    #bedrooms
-    if 'bedrooms' in request.GET:
-        keywords = request.GET['bedrooms']  # Remove leading/trailing spaces
-        if keywords:
-            queryset_list = queryset_list.filter(bedrooms__lte=keywords)
-    #price
-    if 'price' in request.GET:
-        keywords = request.GET['price']  # Remove leading/trailing spaces
-        if keywords:
-            queryset_list = queryset_list.filter(price__lte=keywords)
+    # Check if any filter is applied
+    has_search_params = any(request.GET.get(param) for param in ['keywords', 'title', 'city', 'bedrooms', 'price'])
+
+    if has_search_params:
+        # Keywords (Description)
+        if request.GET.get('keywords'):
+            keywords = request.GET['keywords'].strip()
+            if keywords:
+                queryset_list = queryset_list.filter(description__icontains=keywords)
+
+        # Title
+        if request.GET.get('title'):
+            title = request.GET['title'].strip()
+            if title:
+                queryset_list = queryset_list.filter(title__icontains=title)
+
+        # City (Locality)
+        if request.GET.get('city'):
+            city = request.GET['city'].strip()
+            if city and "All" not in city:  # Handle 'Locality (All)'
+                queryset_list = queryset_list.filter(city__iexact=city)
+
+        # Bedrooms
+        if request.GET.get('bedrooms'):
+            bedrooms = request.GET['bedrooms'].strip()
+            if bedrooms.isdigit():
+                queryset_list = queryset_list.filter(bedrooms__lte=int(bedrooms))
+
+        # Price
+        if request.GET.get('price'):
+            price = request.GET['price'].strip()
+            if price.isdigit():
+                queryset_list = queryset_list.filter(price__lte=int(price))
+
+    
 
     context = {
-        "price_choices":price_choices,
-        "bedroom_choices":bedroom_choices,
-        "locality_choices":locality_choices,
-        "listings":queryset_list,
-        "values":request.GET
+        "price_choices": price_choices,
+        "bedroom_choices": bedroom_choices,
+        "locality_choices": locality_choices,
+        "listings": queryset_list,
+        "values": request.GET
     }
-    return render(request,'listings/search.html', context=context)
+    return render(request, 'listings/search.html', context)
+

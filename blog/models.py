@@ -7,6 +7,7 @@ class Blog(models.Model):
     image = CloudinaryField('image',null=True, blank= True)
     description = models.TextField()
     date = models.DateField()
+    slug = models.SlugField(default="", null=False)
 
     def __str__(self):
         return self.title

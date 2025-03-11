@@ -27,14 +27,14 @@
                 {% endif %}
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title text-dark fw-bold">
-                        <a href="{% url 'blog:detail' j.id %}" class="text-decoration-none text-dark">
+                        <a href="{% url 'blog:detail' j.slug %}" class="text-decoration-none text-dark">
                             {{ j.title }}
                         </a>
                     </h5>
                     <h6 class="text-muted">{{ j.date|date:"d M, Y" }}</h6>
                     <p class="card-text text-muted">{{ j.description | safe | truncatechars:100 }}</p>
                     <div class="mt-auto">
-                        <a href="{% url 'blog:detail' j.id %}" class="btn btn-primary btn-sm w-100">
+                        <a href="{% url 'blog:detail' j.slug %}" class="btn btn-primary btn-sm w-100">
                             Read More
                         </a>
                     </div>

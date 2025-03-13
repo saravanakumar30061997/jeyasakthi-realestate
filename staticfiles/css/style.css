@@ -168,14 +168,8 @@ img {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow */
 }
 
-body {
-  padding-bottom: 70px; /* Adjust based on navbar height */
+.sticky-top, .fixed-bottom {
+  transition: transform 0.3s ease-in-out;
 }
-
-.fixed-bottom {
-  height: 70px; /* Same as body padding */
-}
-
-
 
   

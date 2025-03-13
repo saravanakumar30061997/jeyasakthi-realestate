@@ -106,9 +106,6 @@
         <a class="nav-link text-white" href="{% url 'listings' %}">
             <i class="fas fa-building"></i><br>Listings
         </a>
-        <a class="nav-link text-white" href="{% url 'blog:all_blogs' %}">
-            <i class="fas fa-newspaper"></i><br>Blogs
-        </a>
         {% if user.is_authenticated %}
         <a class="nav-link text-white" href="{% url 'dashboard' %}">
             <i class="fas fa-user"></i><br>Dashboard

@@ -20,9 +20,6 @@ price_choices = {
 }
 
 locality_choices = { 
-    "porur": "Porur",
-    "iyyappanthangal": "Iyyappanthangal",
-    "mangadu": "Mangadu",
     "poonamallee": "Poonamallee",
     "vanagaram": "Vanagaram",
     "ambattur": "Ambattur",

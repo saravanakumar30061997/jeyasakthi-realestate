@@ -54,7 +54,7 @@ def search(request):
         if request.GET.get('bedrooms'):
             bedrooms = request.GET['bedrooms'].strip()
             if bedrooms.isdigit():
-                queryset_list = queryset_list.filter(bedrooms__lte=int(bedrooms))
+                queryset_list = queryset_list.filter(bedrooms=int(bedrooms))
 
         # Price
         if request.GET.get('price'):

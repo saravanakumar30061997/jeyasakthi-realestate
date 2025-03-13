@@ -171,13 +171,3 @@ img {
 .sticky-top, .fixed-bottom {
   transition: transform 0.3s ease-in-out;
 }
-
-.navbar .nav-link {
-  font-size: 12px; /* Adjust the size as needed */
-}
-
-.navbar .nav-link i {
-  font-size: 16px; /* Adjust icon size if necessary */
-}
-
-  

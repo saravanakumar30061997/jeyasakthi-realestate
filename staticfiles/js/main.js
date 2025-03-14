@@ -11,26 +11,21 @@ document.addEventListener("DOMContentLoaded", function () {
     let hideTimeout;
     let isScrollingUp = false;
 
-    // Apply transition only if navbar exists
-    if (topNavbar) topNavbar.style.transition = "transform 0.3s ease-in-out";
-    if (bottomNavbar) bottomNavbar.style.transition = "transform 0.3s ease-in-out";
+    const isMobile = () => window.innerWidth <= 768; // Mobile check
 
-    const isMobile = () => window.innerWidth <= 768; // Mobile screen check
-
+    // Function to hide navbars
     const hideNavbars = () => {
-        if (isMobile()) {
-            if (topNavbar) topNavbar.classList.add("hide");
-            if (topBar) topBar.classList.add("hide");
+        if (isMobile() && topNavbar) {
+            topNavbar.style.transform = "translateY(-100%)";
         }
     };
-    
+
+    // Function to show navbars
     const showNavbars = () => {
-        if (isMobile()) {
-            if (topNavbar) topNavbar.classList.remove("hide");
-            if (topBar) topBar.classList.remove("hide");
+        if (isMobile() && topNavbar) {
+            topNavbar.style.transform = "translateY(0)";
         }
     };
-    
 
     window.addEventListener("scroll", () => {
         requestAnimationFrame(() => {
@@ -58,18 +53,17 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Detect user interactions to show navbars
+    // Show navbar on user interaction
     ["mousemove", "touchstart", "keydown"].forEach(event => {
         window.addEventListener(event, () => {
             if (isMobile()) {
                 showNavbars();
                 clearTimeout(hideTimeout);
-                hideTimeout = setTimeout(hideNavbars, 3000); // Hide after 3 sec of inactivity
+                hideTimeout = setTimeout(hideNavbars, 3000);
             }
         });
     });
 
-    // Initially start the inactivity timer (only on mobile)
     if (isMobile()) {
         hideTimeout = setTimeout(hideNavbars, 3000);
     }

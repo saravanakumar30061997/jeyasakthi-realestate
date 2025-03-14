@@ -167,11 +167,4 @@ img {
   transition: all 0.3s ease-in-out;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow */
 }
-
-@media (max-width: 768px) { /* Adjust breakpoint as needed */
-  .sticky-top, .fixed-bottom {
-    transition: transform 0.3s ease-in-out;
-  }
-}
-
   

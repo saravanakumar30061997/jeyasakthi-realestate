@@ -168,6 +168,40 @@ img {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow */
 }
 
-.sticky-top, .fixed-bottom {
-  transition: transform 0.3s ease-in-out;
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+  .sticky-top, .fixed-bottom {
+    transition: transform 0.3s ease-in-out;
+  }
 }
+
+@media (max-width: 768px) { /* Apply only on mobile screens */
+  .top-bar, .sticky-top {
+      height: 60px; /* Set equal height */
+      line-height: 60px; /* Align text vertically */
+      transition: transform 0.3s ease-in-out, height 0.3s ease-in-out;
+  }
+
+  .sticky-top {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1050;
+      background: white; /* Adjust based on your design */
+  }
+
+  .top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: white; /* Same as navbar to blend in */
+      z-index: 1049; /* Just below navbar */
+  }
+
+  .sticky-top.hide, .top-bar.hide {
+      transform: translateY(-100%);
+  }
+}
+
+  

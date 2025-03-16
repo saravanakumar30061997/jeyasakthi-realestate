@@ -18,7 +18,7 @@ img {
     background: url(../img/showcase.jpg) no-repeat top center fixed;
     background-size: cover;
     position: relative;
-    min-height: 80vh;
+    padding-bottom: 80px;    
     color: #fff;
     padding-top: 6rem;
     display: flex;
@@ -167,4 +167,9 @@ img {
   transition: all 0.3s ease-in-out;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow */
 }
-  
+
+@media (max-width: 768px) {
+  #showcase {
+      background-attachment: scroll !important; /* Forces scrolling on mobile */
+  }
+}

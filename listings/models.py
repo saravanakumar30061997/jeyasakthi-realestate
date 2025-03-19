@@ -48,7 +48,7 @@ class Listing(models.Model):
     is_published = models.BooleanField(default=True)
     list_date = models.DateTimeField(default=datetime.now, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
-    slug = models.SlugField(default="", null=False)
+    slug = models.SlugField(default="", null=False, unique=True, max_length=255)
 
 
     def get_absolute_url(self):

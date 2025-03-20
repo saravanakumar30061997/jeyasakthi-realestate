@@ -28,4 +28,5 @@ locality_choices = {
     "annanur": "Annanur",
     "tiruverkadu": "Tiruverkadu",
     "tiruvallur": "Tiruvallur",
+    "redhills":"Redhills",
 }

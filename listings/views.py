@@ -20,8 +20,12 @@ def index(request):
 
 # Redirect from old ID-based URLs to new slug URLs
 def redirect_to_slug(request, id):
-    listing = get_object_or_404(Listing, id=id)
-    return redirect('listing', slug=listing.slug, permanent=True)  # 301 Permanent Redirect
+    try:
+        listing = Listing.objects.get(id=id)
+        return redirect('listing', slug=listing.slug, permanent=True)  # 301 Permanent Redirect
+    except Listing.DoesNotExist:
+        # Redirect to listing page or fallback if ID not found
+        return redirect('listings')
 
 
 # Show single listing using slug

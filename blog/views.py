@@ -12,8 +12,11 @@ def all_blogs(request):
 
 # Redirect from old ID URL to new slug-based URL
 def redirect_to_slug(request, id):
-    blog = get_object_or_404(Blog, id=id)
-    return redirect('blog:detail', slug=blog.slug, permanent=True)
+    try:
+        blog = Blog.objects.get(id=id)
+        return redirect('blog:detail', slug=blog.slug, permanent=True)
+    except Blog.DoesNotExist:
+        return redirect('blog:all_blogs')  # Redirect to blog list or any fallback page
 
 # Blog detail view using slug
 def detail(request, slug):

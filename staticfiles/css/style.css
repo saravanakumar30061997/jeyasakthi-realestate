@@ -173,3 +173,20 @@ img {
       background-attachment: scroll !important; /* Forces scrolling on mobile */
   }
 }
+
+.share-buttons a {
+  margin-right: 8px;
+  display: inline-block;
+}
+
+.img-main {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-body h5 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+

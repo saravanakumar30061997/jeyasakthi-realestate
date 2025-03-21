@@ -15,9 +15,10 @@
     <!-- Open Graph for Social Media -->
     <meta property="og:title" content="JeyaSakthi Real Estate - Buy & Sell Properties in Thirumullaivoyal">
     <meta property="og:description" content="Find your dream home in Thirumullaivoyal with JeyaSakthi Real Estate. Browse top properties now!">
-    <meta property="og:image" content="{% static 'img/realestate-cover.jpg' %}">
-    <meta property="og:url" content="https://jeyasakthi-realestate.onrender.com/">
+    <meta property="og:image" content="{{ listing.photo_main.url }}">
+    <meta property="og:url" content="https://jeyasakthi-realestate.onrender.com/listings/{{ listing.slug }}/">
     <meta property="og:type" content="website">
+
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}">

@@ -10,7 +10,7 @@ class BlogSitemap(Sitemap):
         return Blog.objects.all()
 
     def lastmod(self, obj):
-        return obj.date
+        return obj.date  # Assuming 'date' is your last modified field
 
     def location(self, obj):
-        return reverse('blog:detail', kwargs={'pk': obj.id})  # Update based on your URL pattern
+        return reverse('blog:detail', kwargs={'slug': obj.slug})  # Corrected to use 'slug'

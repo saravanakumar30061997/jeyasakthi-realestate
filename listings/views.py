@@ -1,30 +1,40 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Listing
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.paginator import Paginator
 from .choices import price_choices, bedroom_choices, locality_choices
 
 
-# Create your views here.
+# Show all listings
 def index(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)
 
-    paginator = Paginator(listings,6)
+    paginator = Paginator(listings, 6)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
     context = {
-        'listings':paged_listings
+        'listings': paged_listings
     }
-    return render(request,'listings/listings.html',context=context)
+    return render(request, 'listings/listings.html', context)
 
-def listing(request,slug):
-    listing = get_object_or_404(Listing,slug=slug)
+
+# Redirect from old ID-based URLs to new slug URLs
+def redirect_to_slug(request, id):
+    listing = get_object_or_404(Listing, id=id)
+    return redirect('listing', slug=listing.slug, permanent=True)  # 301 Permanent Redirect
+
+
+# Show single listing using slug
+def listing(request, slug):
+    listing = get_object_or_404(Listing, slug=slug)
+
     context = {
-        "listing":listing
+        "listing": listing
     }
+    return render(request, 'listings/listing.html', context)
 
-    return render(request,'listings/listing.html', context)
 
+# Search functionality for listings
 def search(request):
     queryset_list = Listing.objects.order_by('-list_date').filter(is_published=True)
 
@@ -47,7 +57,7 @@ def search(request):
         # City (Locality)
         if request.GET.get('city'):
             city = request.GET['city'].strip()
-            if city and "All" not in city:  # Handle 'Locality (All)'
+            if city and "All" not in city:
                 queryset_list = queryset_list.filter(city__iexact=city)
 
         # Bedrooms
@@ -62,8 +72,6 @@ def search(request):
             if price.isdigit():
                 queryset_list = queryset_list.filter(price__lte=int(price))
 
-    
-
     context = {
         "price_choices": price_choices,
         "bedroom_choices": bedroom_choices,
@@ -72,4 +80,3 @@ def search(request):
         "values": request.GET
     }
     return render(request, 'listings/search.html', context)
-

@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block canonical %}
+    <link rel="canonical" href="https://jeyasakthi-realestate.onrender.com/blogs/{{ blog.slug }}/">
+{% endblock %}
+
 
 {% block content %}
 <div class="container my-5">

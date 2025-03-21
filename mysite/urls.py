@@ -42,6 +42,8 @@ urlpatterns = [
     path('contacts/',include('contacts.urls')),
     path('blogs/',include('blog.urls')),
     path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
+    path('sitemap-listings.xml', sitemap, {'sitemaps': {'listings': ListingSitemap}}, name='sitemap-listings'),
+    path('sitemap-blogs.xml', sitemap, {'sitemaps': {'blogs': BlogSitemap}}, name='sitemap-blogs'),
     path('googleef77926a2a0da1fa.html', TemplateView.as_view(template_name="googleef77926a2a0da1fa.html", content_type="text/html")),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 

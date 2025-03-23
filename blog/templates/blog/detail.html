@@ -4,65 +4,53 @@
     <link rel="canonical" href="https://jeyasakthi-realestate.onrender.com/blogs/{{ blog.slug }}/">
 {% endblock %}
 
-
 {% block content %}
 <div class="container my-5">
-    <!-- Remove text-center from this div -->
-    <div>
-        <!-- Blog Image -->
-        {% if blog.image %}
-        <div class="text-center">
-            <img src="{{ blog.image.url }}" class="img-fluid rounded mb-4" alt="{{ blog.title }}" style="max-width: 100%; height: auto;">
-        </div>
-        {% endif %}
+    <!-- Blog Image -->
+    {% if blog.image %}
+    <div class="text-center">
+        <img src="{{ blog.image.url }}" class="img-fluid rounded mb-4" alt="{{ blog.title }}" style="max-width: 100%; height: auto;">
+    </div>
+    {% endif %}
 
-        <!-- Blog Title -->
-        <h1 class="fw-bold text-primary text-center">{{ blog.title }}</h1>
+    <!-- Blog Title -->
+    <h1 class="fw-bold text-primary text-center">{{ blog.title }}</h1>
 
-        <!-- Blog Date -->
-        <h5 class="text-muted text-center">{{ blog.date|date:"d M, Y" }}</h5>
+    <!-- Blog Date -->
+    <h5 class="text-muted text-center">{{ blog.date|date:"d M, Y" }}</h5>
 
-        <!-- Blog Content -->
-        <div class="mt-4 text-start">
-            <p class="text-muted">{{ blog.description | safe}}</p>
-        </div>
-        
-        <!-- Share Blog Section -->
-        <h5 class="mt-5 text-center">Share this Blog</h5>
-        <div class="text-center mt-3">
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" class="btn btn-primary btn-sm mx-1">
+    <!-- Blog Content -->
+    <div class="mt-4 text-start">
+        <p class="text-muted">{{ blog.description | safe }}</p>
+    </div>
+
+    <!-- Social Media Share Buttons -->
+    <div class="my-4">
+        <h5 class="text-start mb-3">Share this Blog</h5>
+        <div class="share-buttons mt-3 d-flex flex-wrap justify-content-start gap-2">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank" class="btn btn-primary btn-sm me-2 mb-2">
                 <i class="fab fa-facebook-f"></i>
             </a>
-
-            <!-- X (Twitter) -->
-            <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ blog.title }}" target="_blank" class="btn btn-dark btn-sm mx-1">
+            <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text={{ blog.title }}" target="_blank" class="btn btn-dark btn-sm me-2 mb-2">
                 <i class="fab fa-x-twitter"></i>
             </a>
-
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}" target="_blank" class="btn btn-info btn-sm mx-1">
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}" target="_blank" class="btn btn-info btn-sm me-2 mb-2">
                 <i class="fab fa-linkedin-in"></i>
             </a>
-
-            <!-- WhatsApp -->
-            <a href="https://api.whatsapp.com/send?text=Check out this blog on JeyaSakthi Real Estate: {{ request.build_absolute_uri }}" target="_blank" class="btn btn-success btn-sm mx-1">
+            <a href="https://api.whatsapp.com/send?text=Check out this blog on JeyaSakthi Real Estate: {{ request.build_absolute_uri }}" target="_blank" class="btn btn-success btn-sm me-2 mb-2">
                 <i class="fab fa-whatsapp"></i>
             </a>
-
-            <!-- Email -->
-            <a href="mailto:?subject=Check out this blog!&body=Read this amazing blog on JeyaSakthi Real Estate: {{ request.build_absolute_uri }}" target="_blank" class="btn btn-danger btn-sm mx-1">
+            <a href="mailto:?subject=Check this blog!&body=Take a look at this blog: {{ request.build_absolute_uri }}" target="_blank" class="btn btn-danger btn-sm mb-2">
                 <i class="fas fa-envelope"></i>
             </a>
         </div>
+    </div>
 
-
-        <!-- Back Button -->
-        <div class="text-center">
-            <a href="{% url 'blog:all_blogs' %}" class="btn btn-secondary mt-3">
-                <i class="fas fa-arrow-left"></i> Back to Blogs
-            </a>
-        </div>
+    <!-- Back Button -->
+    <div class="mt-4">
+        <a href="{% url 'blog:all_blogs' %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Blogs
+        </a>
     </div>
 </div>
 {% endblock %}

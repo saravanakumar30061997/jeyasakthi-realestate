@@ -189,4 +189,9 @@ img {
   margin-top: 10px;
 }
 
+.share-buttons a {
+  min-width: 40px;
+  text-align: center;
+}
+
 

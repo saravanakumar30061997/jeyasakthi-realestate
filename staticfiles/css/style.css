@@ -27,21 +27,9 @@ img {
     text-align: center;
   }
   
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    #showcase {
-      min-height: 60vh;
-      background-attachment: scroll; /* Prevents fixed bg issue on mobile */
-      padding-top: 4rem;
-    }
-  }
+
   
-  @media (max-width: 480px) {
-    #showcase {
-      min-height: 50vh;
-      padding-top: 3rem;
-    }
-  }
+
   #showcase .home-search {
     min-height: 400px;
     position: relative;
@@ -92,16 +80,14 @@ img {
   position: relative; }
 
 @media (max-width: 991px) {
-  #showcase {
-    padding-top: 4rem; }
+  
     #showcase h1 {
       font-size: 40px; }
   .hide-md-down {
     display: none; } }
 
 @media (max-width: 768px) {
-  #showcase {
-    padding-top: 3rem; }
+
     #showcase h1 {
       font-size: 40px; }
     #showcase p {
@@ -168,11 +154,7 @@ img {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow */
 }
 
-@media (max-width: 768px) {
-  #showcase {
-      background-attachment: scroll !important; /* Forces scrolling on mobile */
-  }
-}
+
 
 .share-buttons a {
   margin-right: 8px;
@@ -193,5 +175,55 @@ img {
   min-width: 40px;
   text-align: center;
 }
+
+/* Prevent horizontal overflow */
+body {
+  overflow-x: hidden;
+}
+
+/* Reduce padding in search form on smaller screens */
+@media (max-width: 768px) {
+  .home-search .overlay {
+      padding: 2rem !important;
+  }
+  
+  .btn-block {
+      width: 100%;
+      margin-top: 1rem;
+  }
+
+  /* Reduce icon size for services */
+  .fa-3x {
+      font-size: 2rem;
+  }
+
+  /* Add spacing between listing cards */
+  .listing-preview {
+      margin-bottom: 1.5rem;
+  }
+}
+
+/* Fix listing card image responsiveness */
+.listing-preview img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Prevent excessive button width on smaller devices */
+@media (max-width: 576px) {
+  .btn-block {
+      width: 100%;
+  }
+}
+
+/* Optimize showcase for smaller screens */
+@media (max-width: 480px) {
+  #showcase {
+      min-height: 50vh;
+      padding-top: 3rem;
+  }
+}
+
 
 

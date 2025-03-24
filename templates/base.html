@@ -18,6 +18,15 @@
     <meta property="og:url" content="https://jeyasakthi-realestate.onrender.com/listings/{{ listing.slug }}/">
     <meta property="og:type" content="website">
 
+    <!-- Open Graph for Blog -->
+    <meta property="og:title" content="{{ blog.title }}">
+    <meta property="og:description" content="{{ blog.description|truncatewords:25 }}">
+    <meta property="og:image" content="{{ blog.image.url|default:request.build_absolute_uri|add:'/static/img/default_blog.jpg' }}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:type" content="article">
+
+
+
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{% static 'img/favicon.ico' %}">

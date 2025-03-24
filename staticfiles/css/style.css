@@ -41,6 +41,26 @@ img {
       padding-top: 3rem;
     }
   }
+
+  /* Disable Parallax Effect for Mobile Devices */
+@media (max-width: 768px) {
+  #showcase, 
+  #services, 
+  #showcase-inner {
+    background-attachment: scroll !important; /* Disable parallax */
+    background-position: center center; /* Center image */
+  }
+}
+
+/* Optional: Reduce Background Size for Smaller Devices */
+@media (max-width: 480px) {
+  #showcase, 
+  #services, 
+  #showcase-inner {
+    background-size: cover !important; /* Ensure it fills the container */
+  }
+}
+
   #showcase .home-search {
     min-height: 400px;
     position: relative;

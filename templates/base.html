@@ -21,7 +21,7 @@
     <!-- Open Graph for Blog -->
     <meta property="og:title" content="{{ blog.title }}">
     <meta property="og:description" content="{{ blog.description|truncatewords:25 }}">
-    <meta property="og:image" content="{{ blog.image.url|default:request.build_absolute_uri|add:'/static/img/default_blog.jpg' }}">
+    <meta property="og:image" content="{{ blog.image.url }}">
     <meta property="og:url" content="{{ request.build_absolute_uri }}">
     <meta property="og:type" content="article">
 

@@ -98,7 +98,7 @@
                     {% for listing in listings %}
                         <div class="col-md-6 col-lg-4 mb-4">
                             <div class="card listing-preview shadow-sm position-relative">
-                                <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="{{ listing.title }}">
+                                <img class="card-img-top" src="{{ listing.photo_main.url }}" alt="{{ listing.title }}" loading="lazy">
                                 <div class="position-absolute top-0 start-0 m-2 p-2 bg-success text-white rounded">
                                     <h5 class="m-0">₹ {{ listing.price | indian_currency }}</h5>
                                 </div>

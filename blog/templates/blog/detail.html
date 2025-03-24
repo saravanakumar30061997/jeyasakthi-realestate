@@ -9,7 +9,7 @@
     <!-- Blog Image -->
     {% if blog.image %}
     <div class="text-center">
-        <img src="{{ blog.image.url }}" class="img-fluid rounded mb-4" alt="{{ blog.title }}" style="max-width: 100%; height: auto;">
+        <img src="{{ blog.image.url }}" class="img-fluid rounded mb-4" alt="{{ blog.title }}" style="max-width: 100%; height: auto;" loading="lazy">
     </div>
     {% endif %}
 

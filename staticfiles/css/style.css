@@ -26,16 +26,15 @@ img {
     justify-content: center;
     text-align: center;
   }
-  
+
   /* Responsive Design */
   @media (max-width: 768px) {
     #showcase {
       min-height: 60vh;
-      background-attachment: scroll; /* Prevents fixed bg issue on mobile */
       padding-top: 4rem;
     }
   }
-  
+
   @media (max-width: 480px) {
     #showcase {
       min-height: 50vh;
@@ -128,17 +127,17 @@ img {
       z-index: 1050; /* Ensures it stays above everything */
       transition: transform 0.2s ease-in-out;
   }
-  
+
 .whatsapp-float img {
       width: 50px;
       height: 50px;
   }
-  
+
 .whatsapp-float:hover {
       opacity: 0.8;
       transform: scale(1.1); /* Adds a slight hover effect */
   }
-  
+
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
@@ -168,12 +167,6 @@ img {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a shadow */
 }
 
-@media (max-width: 768px) {
-  #showcase {
-      background-attachment: scroll !important; /* Forces scrolling on mobile */
-  }
-}
-
 .share-buttons a {
   margin-right: 8px;
   display: inline-block;
@@ -193,5 +186,3 @@ img {
   min-width: 40px;
   text-align: center;
 }
-
-

@@ -37,7 +37,7 @@ class Listing(models.Model):
     bathrooms = models.DecimalField(max_digits=2,decimal_places=1)
     garage = models.IntegerField(default=0)
     sqft = models.IntegerField()
-    lot_size = models.DecimalField(max_digits=7,decimal_places=1,blank=True, null=True)
+    lot_size = models.CharField(max_length=100, blank=True, default="0")
     photo_main = CloudinaryField('photo_main')
     photo_1 = CloudinaryField('photo_1',null=True, blank=True)
     photo_2 = CloudinaryField('photo_2',null=True, blank=True)

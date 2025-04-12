@@ -2,7 +2,7 @@ from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 
 class StaticViewSitemap(Sitemap):
-    priority = 0.7  # Higher means more important for search engines
+    priority = 1.0  # Higher means more important for search engines
     changefreq = "monthly"  # How often the page is likely to change
 
     def items(self):

@@ -28,11 +28,12 @@ class ListingAdmin(admin.ModelAdmin):
         'garage',
         'sqft',
         'lot_size',
+        'address',      # <-- added address field here
         'city',
         'state',
         'zipcode',
-        'latitude',   # optional field
-        'longitude',  # optional field
+        'latitude',     # optional field
+        'longitude',    # optional field
         'photo_main',
         'photo_1',
         'photo_2',

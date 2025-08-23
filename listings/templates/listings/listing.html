@@ -16,6 +16,28 @@
                 <p class="lead">
                     <i class="fas fa-map-marker-alt"></i> {{ listing.city }}, {{ listing.state }}, {{ listing.zipcode }}
                 </p>
+
+                <!-- Optional Google Maps Embed -->
+                {% if listing.latitude and listing.longitude %}
+                <div class="map-container mb-4">
+                    <iframe
+                        width="100%"
+                        height="400"
+                        frameborder="0"
+                        style="border:0; border-radius:8px;"
+                        src="https://www.google.com/maps/embed/v1/place?key={{ GOOGLE_MAPS_API_KEY }}&q={{ listing.latitude }},{{ listing.longitude }}"
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                </div>
+                {% else %}
+                <!-- Optional: Show a link if no coordinates -->
+                <p>
+                    <a href="https://www.google.com/maps/search/?api=1&query={{ listing.address|urlencode }}" target="_blank">
+                        View on Google Maps
+                    </a>
+                </p>
+                {% endif %}
             </div>
         </div>
     </div>

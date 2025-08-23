@@ -38,6 +38,9 @@ class Listing(models.Model):
     garage = models.IntegerField(default=0)
     sqft = models.IntegerField()
     lot_size = models.CharField(max_length=100, blank=True, default="0")
+    # Add these:
+    latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     photo_main = CloudinaryField('photo_main')
     photo_1 = CloudinaryField('photo_1',null=True, blank=True)
     photo_2 = CloudinaryField('photo_2',null=True, blank=True)

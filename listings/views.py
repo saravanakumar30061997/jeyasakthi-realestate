@@ -27,12 +27,15 @@ def redirect_to_slug(request, id):
         return redirect('listings')
 
 
+from django.conf import settings  # <-- add this import
+
 # Show single listing using slug
 def listing(request, slug):
     listing = get_object_or_404(Listing, slug=slug)
 
     context = {
-        "listing": listing
+        "listing": listing,
+        "GOOGLE_MAPS_API_KEY": settings.GOOGLE_MAPS_API_KEY  # <-- add this line
     }
     return render(request, 'listings/listing.html', context)
 

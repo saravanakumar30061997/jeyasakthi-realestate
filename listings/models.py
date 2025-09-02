@@ -52,7 +52,7 @@ class Listing(models.Model):
     list_date = models.DateTimeField(default=datetime.now, blank=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     slug = models.SlugField(default="", null=False, unique=True, max_length=255)
-
+    tag = models.CharField(max_length=255, default="general")
 
     def get_absolute_url(self):
         return reverse('listing', args=[str(self.id)])  # Match this with your URL name

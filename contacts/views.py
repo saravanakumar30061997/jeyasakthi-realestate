@@ -36,18 +36,15 @@ def contact(request):
         )
         contact.save()
 
-        # ✅ Send email notification
-        try:
-            send_mail(
-                'Property Listing Inquiry',
-                f'There has been an inquiry for {listing.title}. Sign into the admin panel for more info.',
-                'jeyasakthirealestate@gmail.com',
-                [realtor_email, 'saravanask1997@gmail.com', 'jeyasakthi0528@gmail.com'],
-                fail_silently=False
-            )
-        except Exception:
-            # If email fails (timeout, auth error), do not crash the app.
-            messages.error(request, "Your inquiry was saved, but the email notification could not be sent.")
+        messages.success(request, 'Your request has been submitted, a realtor will get back to you shortly.')
 
-        messages.success(request, "Your request has been submitted, a realtor will get back to you soon.")
+        # ✅ Send email notification
+        send_mail(
+            'Property Listing Inquiry',
+            f'There has been an inquiry for {listing.title}. Sign into the admin panel for more info.',
+            'jeyasakthirealestate@gmail.com',
+            [realtor_email, 'saravanask1997@gmail.com', 'jeyasakthi0528@gmail.com'],
+            fail_silently=True
+        )
+
         return redirect('/listings/' + listing.slug)

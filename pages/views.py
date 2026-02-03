@@ -19,3 +19,6 @@ def about(request):
     context = {"realtors":realtors, "mvp_realtors":mvp_realtors}
     return render(request,'pages/about.html', context=context)
 
+def handler404(request, exception):
+    return render(request, 'pages/404.html', status=404)
+

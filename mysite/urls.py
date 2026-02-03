@@ -26,7 +26,7 @@ from pages.sitemaps import StaticViewSitemap
 from blog.sitemaps import BlogSitemap
 from django.views.generic.base import TemplateView
 
-
+handler404 = 'pages.views.handler404'
 
 sitemaps = {
     "static": StaticViewSitemap(),
